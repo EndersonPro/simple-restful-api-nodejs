@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 
+const cors =  require('./cors')
 
 /* Model User */
 const User = require('./api/models/Model');
@@ -15,6 +16,7 @@ mongoose.connect("mongodb://localhost:27017/UserBD",  { useNewUrlParser: true })
     .catch((err)=>console.log(err));
 
 
+app.use(cors)
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
