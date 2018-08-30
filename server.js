@@ -10,8 +10,10 @@ const User = require('./api/models/Model');
 
 const port = 3000 || process.env.PORT;
 
+const portMongoDB = 8080;
+
 mongoose.Promise = global.Promise; 
-mongoose.connect("mongodb://localhost:27017/UserBD",  { useNewUrlParser: true })
+mongoose.connect(`mongodb://localhost:${portMongoDB}/UserBD`,  { useNewUrlParser: true })
     .then(()=>console.log("------------------- Base de datos conectada ------------------------"))
     .catch((err)=>console.log(err));
 

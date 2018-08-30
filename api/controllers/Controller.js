@@ -11,6 +11,7 @@ exports.all_user = (req, res) => {
 
 /* Crea un nuevo usuario */
 exports.create_user = (req, res) => {
+  console.log(req.body)
   var new_user = new User(req.body);
   new_user.save((err, user) => {
     err ? res.send(err) : res.json(user);
